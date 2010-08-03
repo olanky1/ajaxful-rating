@@ -43,7 +43,7 @@ module AjaxfulRating # :nodoc:
         :method => :post
       }.merge(remote_options)
       
-      if @remote_options[:url].nil?
+      if @remote_options[:url].nil? && !options[:force_static]
         rateable_name = ActionController::RecordIdentifier.singular_class_name(rateable)
         url = "rate_#{rateable_name}_path"
         if @template.respond_to?(url)
