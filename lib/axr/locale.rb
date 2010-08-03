@@ -19,7 +19,7 @@ module AjaxfulRating # :nodoc:
     
     def i18n(key, value = nil)
       key = if key == :current
-        options[:show_user_rating] ? :user_rating : (value.zero? ? :global_average_zero : :global_average)
+        options[:show_user_rating] ? :user_rating : (!!value ? :global_average_zero : :global_average)
       else
         key.to_sym
       end
